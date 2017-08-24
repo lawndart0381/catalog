@@ -92,24 +92,24 @@
 
 <!-- Facebook Sign-In -->
 <script>
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '302609006865851',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.8' 
-  });
-  };
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  function sendTokenToServer() {
+ window.fbAsyncInit = function() {
+ FB.init({
+   appId      : '136750020263469',
+   cookie     : true,
+   xfbml      : true,
+   version    : 'v2.8'
+ });
+ FB.AppEvents.logPageView();   
+ };
+
+ (function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+ function sendTokenToServer() {
     var access_token = FB.getAuthResponse()['accessToken'];
     console.log(access_token)
     console.log('Welcome!  Fetching your information.... ');
