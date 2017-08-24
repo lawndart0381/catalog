@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row">
+	<img class="banner main" src="/static/img/banner.jpg">
+</div>
+
+<div class="row padding-top padding-bottom menu">
+	<div class="col-md-12 padding-none">
+		<h1>New Item</h1>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 padding-top">
+		<form action="#" method = "post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type ="text" class="form-control" maxlength="100" name="name" required="required">
+				<div class="padding-bottom"></div>
+				<label for="description">Description:</label>
+				<textarea class="form-control" maxlength="250" rows="3" name="description" required="required"></textarea>
+				<div class="padding-bottom"></div>
+				<label for="price">Price:</label>
+				<div class="input-group">
+				<div class="input-group-addon">$</div>
+				<input type="text" class="form-control" maxlength="14" name="price" required="required">
+				</div>
+				<br>
+				<label for="picture">Image:</label>
+        		<input type="file" name="file"><br/>
+      			<p style="color: #FF0000">Images must be PNG or JPG, 250 x 250 pixels, and less than 2MB.</p>
+				<button type="submit" id="submit" type="submit">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Item</button>
+				<button><a href = "#" onclick="history.back();">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</a>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

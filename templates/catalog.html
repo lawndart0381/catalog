@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row">
+	<img class="banner main" src="/static/img/banner.jpg">
+</div>
+
+<div class="row padding-top">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<div class="col-md-12 flash">
+    	<ul>
+    		{% for message in messages %}
+    		<li> <strong> {{ message }} </strong> </li>
+        	{% endfor %}
+    	</ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+</div>
+
+<div class="row padding-top padding-bottom menu">
+	<div class="col-md-12 padding-none">
+		<h1>Categories</h1>
+		<hr>
+	</div>
+</div>
+	
+<div class="col-md-1 side-menu"></div>
+
+{% for category in categories %}
+
+<div class="col-md-2 spacer text-center">
+		<h2>{{category.name}}</h2>
+		<p><img src="/static/img/{{category.image}}" alt="not found" onerror=this.src="/static/img/image_soon.jpg" style="max-width: 50%; max-height: 50%"></p>
+		<a href="{{url_for('showItems', category_id = category.id)}}"><span class="glyphicon glyphicon-eye-open padding-bottom" aria-hidden="true"></span>View Category</a>
+</div>
+
+{% endfor %}
+
+<div class="col-md-1 side-menu"></div>
+
+{% endblock %}

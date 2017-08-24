@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	
+<div class="row">
+	<img class="banner main" src="/static/img/banner.jpg">
+</div>
+	
+<div class="row padding-top padding-bottom menu">
+	<div class="col-md-12 padding-none">
+		<h1>Edit Item</h1>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 padding-top">
+		<form action="#" method = "post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type ="text" maxlength="100" class="form-control" name="name" placeholder="{{item.name}}" required="required">
+				<br>
+				<label for="description">Description:</label>
+				<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="{{item.description}}" required="required"></textarea>
+				<br>
+				<label for="price">Price:</label>
+				<div class="input-group">
+				<div class="input-group-addon">$</div>
+				<input type ="text" maxlength="10" class="form-control" name="price" placeholder="{{item.price}}" required="required">
+				</div>
+				<br>
+				<label for="picture">Image:</label>
+        		<input type="file" name="file"><br/>
+      			<p style="color: #FF0000">Images must be PNG or JPG, 250 x 250 pixels, and less than 2MB.</p>
+				<button type="submit" id="submit">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+			</div>
+		</form>
+		<button onclick="goBack()">
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+		</button>
+
+		<script>
+			function goBack() {
+				window.history.back();
+			}
+		</script>
+	</div>
+</div>
+
+{% endblock %}

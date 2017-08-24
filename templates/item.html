@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row">
+	<img class="banner main" src="/static/img/banner.jpg">
+</div>
+
+<div class="row padding-top">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<div class="col-md-12 flash">
+		<ul>
+    	{% for message in messages %}
+    		<li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+    	</ul>
+	</div>
+		{% endif %}
+    	{% endwith %}
+</div>
+
+<div class="row padding-top padding-bottom menu">
+	<div class="col-md-12 padding-none">
+		<h1>{{category_item.name}}</h1>
+		<hr>
+	</div>
+</div>
+
+<div class="col-md-2 side-menu">
+	<a href="{{url_for('editItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-pencil padding-bottom padding-top" aria-hidden="true"></span>Edit Item</a>
+	<br>
+	<a href="{{url_for('deleteItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-trash padding-bottom padding-top" aria-hidden="true"></span>Delete Item</a>
+	<br>
+	<a href="{{url_for('showItems', category_id = category_item.category_id)}}"><span class="glyphicon glyphicon-arrow-left padding-bottom padding-top" aria-hidden="true"></span>Back</a>
+</div>
+
+<div class="col-md-8 spacer text-center">
+	<h2>{{category_item.name}}</h2>
+	<p><img src="/static/img/{{category_item.picture}}" alt="not found" onerror=this.src="/static/img/image_soon.jpg" style="max-width: 50%; max-height: 50%"></p>
+	<h3>{{category_item.description}}</h3>
+	<h2>{{category_item.price}}</h2>
+</div>
+
+{% endblock %}
+	
