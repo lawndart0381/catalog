@@ -14,6 +14,8 @@ import httplib2
 import json
 import requests
 
+path = os.path.dirname(__file__)
+
 app = Flask(__name__)
 
 # Folder to upload catalog images to
