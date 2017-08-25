@@ -54,7 +54,7 @@ class Item(Base):
     id = Column(Integer, primary_key=True)
     description = Column(String(250))
     price = Column(String(250))
-    picture = Column(String(250))
+    image = Column(String(250))
     category_id = Column(Integer, ForeignKey('category.id'))
     time_created = Column(DateTime(timezone=True), server_default=func.now())
     time_updated = Column(DateTime(timezone=True), onupdate=func.now())
@@ -70,7 +70,7 @@ class Item(Base):
             'id': self.id,
             'description': self.description,
             'price': self.price,
-            'picture': self.picture,
+            'image': self.image,
             'category_id': self.category_id,
             'time_created': self.time_created,
             'time_updated': self.time_updated,
