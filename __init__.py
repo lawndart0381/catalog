@@ -307,10 +307,10 @@ def newCategoryItem(category_id):
         flash('You are not allowed to add items until you login!')
         return redirect('/login')
     if request.method == 'POST':
-        if request.files['file']:
-            image = request.files['file']
-            filename = secure_filename(image.filename)
-            image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        # if request.files['file']:
+        #     image = request.files['file']
+        #     filename = secure_filename(image.filename)
+        #     image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         newItem = Item(name=request.form['name'],
                        description=request.form['description'],
                        price=request.form['price'], picture=filename,
@@ -343,11 +343,11 @@ def editItem(item_id):
             editedItem.description = request.form['description']
         if request.form['price']:
             editedItem.price = request.form['price']
-        if request.files['file']:
-            image = request.files['file']
-            filename = secure_filename(image.filename)
-            image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            editedItem.picture = filename
+        # if request.files['file']:
+        #     image = request.files['file']
+        #     filename = secure_filename(image.filename)
+        #     image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        #     editedItem.picture = filename
         session.add(editedItem)
         session.commit()
         flash('%s item successfully updated' % editedItem.name)
