@@ -44,7 +44,7 @@
 {% if item.category_id == category.id %}
 <div class="col-md-4 spacer text-center">
 	<h3>{{item.name}}</h3>
-	<p><img src="static/img/{{item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
+	<p><img src="/static/img/{{item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
 	<br>
 	<p>{{item.price}}</p>
 	<a href="{{url_for('showItem', item_id = item.id)}}"><span class="glyphicon glyphicon-eye-open padding-bottom" aria-hidden="true"></span>View Item</a>
