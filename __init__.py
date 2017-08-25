@@ -295,7 +295,11 @@ def showItems(category_id):
 @app.route('/catalog/item/<int:item_id>')
 def showItem(item_id):
     category_item = session.query(Item).filter_by(id=item_id).one_or_none()
-    creator = getUserInfo(category_item.user_id)
+    if category_item is None:
+        flash('Oops, that item does not exist in the catalog!')
+        return redirect(url_for('showCatalog'))
+    else:
+        creator = getUserInfo(category_item.user_id)
     if 'username' not in login_session or creator.id != login_session['user_id']:  # NOQA
         return render_template('publicitem.html', category_item=category_item,
                                creator=creator)
@@ -308,6 +312,9 @@ def showItem(item_id):
 @app.route('/catalog/<int:category_id>/item/new', methods=['GET', 'POST'])
 def newCategoryItem(category_id):
     category = session.query(Category).filter_by(id=category_id).one_or_none()
+    if category is None:
+        flash('Oops, that category does not exist in the catalog!')
+        return redirect(url_for('showCatalog'))
     if 'username' not in login_session:
         flash('You are not allowed to add items until you login!')
         return redirect('/login')
@@ -330,7 +337,11 @@ def newCategoryItem(category_id):
 @app.route('/catalog/item/<int:item_id>/edit', methods=['GET', 'POST'])
 def editItem(item_id):
     editedItem = session.query(Item).filter_by(id=item_id).one_or_none()
-    creator = getUserInfo(editedItem.user_id)
+    if editedItem is None:
+        flash('Oops, that item does not exist in the catalog!')
+        return redirect(url_for('showCatalog'))
+    else:
+        creator = getUserInfo(editedItem.user_id)
     if 'username' not in login_session:
         flash('You are not allowed to edit items until you login!')
         return redirect('/login')
@@ -357,7 +368,11 @@ def editItem(item_id):
 @app.route('/catalog/item/<int:item_id>/delete', methods=['GET', 'POST'])
 def deleteItem(item_id):
     deletedItem = session.query(Item).filter_by(id=item_id).one_or_none()
-    creator = getUserInfo(deletedItem.user_id)
+    if deletedItem is None:
+        flash('Oops, that item does not exist in the catalog!')
+        return redirect(url_for('showCatalog'))
+    else:
+        creator = getUserInfo(deletedItem.user_id)
     if 'username' not in login_session:
         flash('You are not allowed to delete items until you login!')
         return redirect('/login')
