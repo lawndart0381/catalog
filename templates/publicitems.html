@@ -50,11 +50,9 @@
 
 <div class="row row-container">
 
-	<div class="col-xs-2 col-sm-2 col-md-2 side-menu"></div>
-
 	{% for item in items %}
 	{% if item.category_id == category.id %}
-	<div class="col-xs-8 col-sm-8 col-md-8 spacer text-center">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 spacer text-center">
 		<h3>{{item.name}}</h3>
 		<p><img src="/static/img/{{item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
 		<br>
@@ -64,8 +62,6 @@
 	</div>
 
 	{% endfor %}
-
-	<div class="col-xs-2 col-sm-2 col-md-2 side-menu"></div>
 
 </div>
 

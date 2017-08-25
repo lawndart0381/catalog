@@ -169,13 +169,15 @@ a:active {
 	margin-right: 20px;
 	border-radius: 8px;
 	box-shadow: 4px 4px 4px #A9A9A9;
+	height: 300px;
+	width: 300px;
 }
 
 .vert-spacer {
 	height: 2px;
 }
 .side-menu {
-	height: 100vhpx;
+	height: 100vh;
 	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	font-size: 20px;
@@ -192,7 +194,7 @@ a:active {
 }
 
 .row-container {
-	max-height: 600px;
+	max-height: 1000px;
 	overflow-y: scroll;
 }
 
