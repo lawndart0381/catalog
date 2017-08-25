@@ -275,7 +275,7 @@ def showCatalog():
 @app.route('/catalog/<int:category_id>/')
 @app.route('/catalog/<int:category_id>/items')
 def showItems(category_id):
-    category = session.query(Category).filter_by(id=category_id).one()
+    category = session.query(Category).filter_by(id=category_id).one_or_none()
     items = session.query(Item).filter_by(category_id=category_id).order_by("time_created desc").all()  # NOQA
     creator = getUserInfo(category.user_id)
     if 'username' not in login_session:
@@ -289,7 +289,7 @@ def showItems(category_id):
 # Single selected item page
 @app.route('/catalog/item/<int:item_id>')
 def showItem(item_id):
-    category_item = session.query(Item).filter_by(id=item_id).one()
+    category_item = session.query(Item).filter_by(id=item_id).one_or_none()
     creator = getUserInfo(category_item.user_id)
     if 'username' not in login_session or creator.id != login_session['user_id']:  # NOQA
         return render_template('publicitem.html', category_item=category_item,
@@ -302,7 +302,7 @@ def showItem(item_id):
 # Add a new item in a category page
 @app.route('/catalog/<int:category_id>/item/new', methods=['GET', 'POST'])
 def newCategoryItem(category_id):
-    category = session.query(Category).filter_by(id=category_id).one()
+    category = session.query(Category).filter_by(id=category_id).one_or_none()
     if 'username' not in login_session:
         flash('You are not allowed to add items until you login!')
         return redirect('/login')
@@ -324,7 +324,7 @@ def newCategoryItem(category_id):
 # Edit an item created by the current user
 @app.route('/catalog/item/<int:item_id>/edit', methods=['GET', 'POST'])
 def editItem(item_id):
-    editedItem = session.query(Item).filter_by(id=item_id).one()
+    editedItem = session.query(Item).filter_by(id=item_id).one_or_none()
     creator = getUserInfo(editedItem.user_id)
     if 'username' not in login_session:
         flash('You are not allowed to edit items until you login!')
@@ -351,7 +351,7 @@ def editItem(item_id):
 # Delete an item created by the current user
 @app.route('/catalog/item/<int:item_id>/delete', methods=['GET', 'POST'])
 def deleteItem(item_id):
-    deletedItem = session.query(Item).filter_by(id=item_id).one()
+    deletedItem = session.query(Item).filter_by(id=item_id).one_or_none()
     creator = getUserInfo(deletedItem.user_id)
     if 'username' not in login_session:
         flash('You are not allowed to delete items until you login!')
