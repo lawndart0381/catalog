@@ -27,19 +27,37 @@
 	</div>
 </div>
 
-<div class="col-md-2 side-menu">
-	<a href="{{url_for('newCategoryItem', category_id=category.id)}}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Item</a>
+<div class="row">
+
+	<div class="col-xs-4 col-sm-4 col-md-4 text-left">
+		<a href="{{url_for('showItems', category_id = category_item.category_id)}}"><span class="glyphicon glyphicon-arrow-left padding-bottom padding-top" aria-hidden="true"></span>Back</a>
+	</div>
+
+	<div class="col-xs-4 col-sm-4 col-md-4 text-center">
+		<a href="{{url_for('newCategoryItem', category_id=category.id)}}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Item</a>
+	</div>
+
+	<div class="col-xs-4 col-sm-4 col-md-4"></div>
+
 </div>
 
-{% for item in items %}
-{% if item.category_id == category.id %}
-<div class="col-md-4 spacer text-center">
-	<h3>{{item.name}}</h3>
-	<p><img src="/static/img/{{item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
-	<br>
-	<p>{{item.price}}</p>
-	<a href="{{url_for('showItem', item_id = item.id)}}"><span class="glyphicon glyphicon-eye-open padding-bottom" aria-hidden="true"></span>View Item</a>
-	{% endif %}
+<div class="row">
+
+	<div class="col-xs-2 col-sm-2 col-md-2 side-menu"></div>
+
+	{% for item in items %}
+	{% if item.category_id == category.id %}
+	<div class="col-xs-8 col-sm-8 col-md-8 spacer text-center">
+		<h3>{{item.name}}</h3>
+		<p><img src="/static/img/{{item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
+		<br>
+		<p>{{item.price}}</p>
+		<a href="{{url_for('showItem', item_id = item.id)}}"><span class="glyphicon glyphicon-eye-open padding-bottom" aria-hidden="true"></span>View Item</a>
+		{% endif %}
+	</div>
+
+	<div class="col-xs-2 col-sm-2 col-md-2 side-menu"></div>
+
 </div>
 
 {% endfor %}
