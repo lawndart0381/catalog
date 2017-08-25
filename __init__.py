@@ -277,10 +277,12 @@ def showCatalog():
 def showItems(category_id):
     category = session.query(Category).filter_by(id=category_id).one_or_none()
     items = session.query(Item).filter_by(category_id=category_id).order_by("time_created desc").all()  # NOQA
-    creator = getUserInfo(category.user_id)
     if 'category_id' is None:
-        flash('Oops, that item does not exist in the catalog!')
+        flash('Oops, that category does not exist in the catalog!')
         return redirect(url_for('showCatalog'))
+    else:
+        creator = getUserInfo(category.user_id)
+
     if 'username' not in login_session:
         return render_template('publicitems.html', category=category,
                                items=items, creator=creator)
