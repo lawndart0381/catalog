@@ -175,7 +175,7 @@ a:active {
 	height: 2px;
 }
 .side-menu {
-	height: 20000px;
+	height: 100vhpx;
 	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	font-size: 20px;
@@ -189,6 +189,11 @@ a:active {
 .viewport {
 	height: 100px;
 	width: 250px;
+}
+
+.row-container {
+	max-height: 600px;
+	overflow-y: scroll;
 }
 
 @media screen and (max-width: 800px) {
