@@ -191,7 +191,7 @@ a:active {
 	width: 250px;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
 	.side-menu {
 		height: 100px;
 		font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
@@ -201,7 +201,7 @@ a:active {
 	}
 }
 
-@media screen and (min-width: 801px) {
+/*@media screen and (min-width: 801px) {
 	.side-menu {
 		height: 100vh;
 		font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
@@ -209,4 +209,4 @@ a:active {
 		font-size: 20px;
 		color: #D3D3D3;
 	}
-}
+}*/
