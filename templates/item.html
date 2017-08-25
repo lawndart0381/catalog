@@ -30,14 +30,16 @@
 <div class="row">
 
 	<div class="col-xs-4 col-sm-4 col-md-4 text-left">
-		<a href="{{url_for('editItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-pencil padding-bottom padding-top" aria-hidden="true"></span>Edit Item</a>
-	</div>
-	<div class="col-xs-4 col-sm-4 col-md-4 text-center">
-		<a href="{{url_for('deleteItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-trash padding-bottom padding-top" aria-hidden="true"></span>Delete Item</a>
-	</div>
-	<div class="col-xs-4 col-sm-4 col-md-4 text-right">
 		<a href="{{url_for('showItems', category_id = category_item.category_id)}}"><span class="glyphicon glyphicon-arrow-left padding-bottom padding-top" aria-hidden="true"></span>Back</a>
 	</div>
+
+	<div class="col-xs-4 col-sm-4 col-md-4 text-center">
+		<a href="{{url_for('editItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-pencil padding-bottom padding-top" aria-hidden="true"></span>Edit Item</a>
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 text-right">
+		<a href="{{url_for('deleteItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-trash padding-bottom padding-top" aria-hidden="true"></span>Delete Item</a>
+	</div>
+
 
 </div>
 
