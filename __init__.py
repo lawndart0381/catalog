@@ -277,7 +277,7 @@ def showCatalog():
 def showItems(category_id):
     category = session.query(Category).filter_by(id=category_id).one_or_none()
     items = session.query(Item).filter_by(category_id=category_id).order_by("time_created desc").all()  # NOQA
-    if 'category_id' is None:
+    if category is None:
         flash('Oops, that category does not exist in the catalog!')
         return redirect(url_for('showCatalog'))
     else:
