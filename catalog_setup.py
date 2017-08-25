@@ -11,7 +11,7 @@ Base = declarative_base()
 
 
 class User(Base):
-    # Creates the 'user' table in the database
+    # Creates the 'users' table in the database
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
