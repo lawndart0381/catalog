@@ -33,7 +33,7 @@
 
 <div class="col-md-2 spacer text-center">
 		<h2>{{category.name}}</h2>
-		<p><img src="{{url_for('static', filename={{category.image}})}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
+		<p><img src="url_for('static', filename={{category.image}})" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
 		<a href="{{url_for('showItems', category_id = category.id)}}"><span class="glyphicon glyphicon-eye-open padding-bottom" aria-hidden="true"></span>View Category</a>
 </div>
 
