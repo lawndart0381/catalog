@@ -37,7 +37,7 @@
 
 <div class="col-md-8 spacer text-center">
 	<h2>{{category_item.name}}</h2>
-	<p><img src="static/{{category_item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
+	<p><img src="static/img/{{category_item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
 	<h3>{{category_item.description}}</h3>
 	<h2>{{category_item.price}}</h2>
 </div>
