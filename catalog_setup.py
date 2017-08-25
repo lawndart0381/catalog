@@ -77,6 +77,7 @@ class Item(Base):
             'user_id': self.user_id,
         }
 
-engine = create_engine('sqlite:///catalogapp.db')
+engine = create_engine('postgresql://catalog:pa$$word@localhost/catalog')
 
 Base.metadata.create_all(engine)
+
