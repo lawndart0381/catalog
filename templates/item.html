@@ -27,20 +27,33 @@
 	</div>
 </div>
 
-<div class="col-md-2 side-menu">
-	<a href="{{url_for('editItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-pencil padding-bottom padding-top" aria-hidden="true"></span>Edit Item</a>
-	<br>
-	<a href="{{url_for('deleteItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-trash padding-bottom padding-top" aria-hidden="true"></span>Delete Item</a>
-	<br>
-	<a href="{{url_for('showItems', category_id = category_item.category_id)}}"><span class="glyphicon glyphicon-arrow-left padding-bottom padding-top" aria-hidden="true"></span>Back</a>
+<div class="row">
+
+	<div class="col-xs-4 col-sm-4 col-md-4 text-left">
+		<a href="{{url_for('editItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-pencil padding-bottom padding-top" aria-hidden="true"></span>Edit Item</a>
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 text-center">
+		<a href="{{url_for('deleteItem', item_id=category_item.id)}}"><span class="glyphicon glyphicon-trash padding-bottom padding-top" aria-hidden="true"></span>Delete Item</a>
+	</div>
+	<div class="col-xs-4 col-sm-4 col-md-4 text-right">
+		<a href="{{url_for('showItems', category_id = category_item.category_id)}}"><span class="glyphicon glyphicon-arrow-left padding-bottom padding-top" aria-hidden="true"></span>Back</a>
+	</div>
+
 </div>
 
-<div class="col-md-8 spacer text-center">
-	<h2>{{category_item.name}}</h2>
-	<p><img src="/static/img/{{category_item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
-	<h3>{{category_item.description}}</h3>
-	<h2>{{category_item.price}}</h2>
-</div>
+<div class="row">
 
+	<div class="col-xs-2 col-sm-2 col-md-2 side-menu"></div>
+
+	<div class="col-xs-8 col-sm-8 col-md-8 spacer text-center">
+		<h2>{{category_item.name}}</h2>
+		<p><img src="/static/img/{{category_item.image}}" alt="not found" onerror=this.src="{{url_for('static', filename='image_soon.jpg')}}" style="max-width: 50%; max-height: 50%"></p>
+		<h3>{{category_item.description}}</h3>
+		<h2>{{category_item.price}}</h2>
+	</div>
+
+	<div class="col-xs-2 col-sm-2 col-md-2 side-menu"></div>
+
+</div>
 
 {% endblock %}
