@@ -155,22 +155,24 @@ a:active {
 	border: 1px solid #E2E2E2;
 	margin-bottom: 25px;
 	margin-top: 25px;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 125px;
+	margin-right: 125px;
 	border-radius: 8px;
 	box-shadow: 4px 4px 4px #A9A9A9;
+	max-height: 500px;
+	max-width: 500px;
 }
 
 .catalog-spacer {
 	border: 1px solid #E2E2E2;
 	margin-bottom: 20px;
 	margin-top: 20px;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-left: 125px;
+	margin-right: 125px;
 	border-radius: 8px;
 	box-shadow: 4px 4px 4px #A9A9A9;
-	max-height: 250px;
-	max-width: 250px;
+	max-height: 500px;
+	max-width: 500px;
 }
 
 .vert-spacer {
@@ -194,7 +196,7 @@ a:active {
 }
 
 .row-container {
-	max-height: 1000px;
+	max-height: 1400px;
 	overflow-y: scroll;
 }
 
