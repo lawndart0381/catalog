@@ -202,14 +202,14 @@ a:active {
 
 @media (min-width: 1200px) {
 	.catalog-spacer {
-		max-width: 400px;
+		max-width: 900px;
 		max-height: 400px;
-		margin-right: 0px;
+
 	}
 	.spacer {
-		max-width: 400px;
+		max-width: 900px;
 		max-height: 400px;
-		margin-right: 0px;
+
 	}
 
 }
