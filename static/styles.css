@@ -200,6 +200,13 @@ a:active {
 	overflow-y: scroll;
 }
 
+@media (min-width: 1200px) {
+	.catalog-spacer {
+		max-width: 400px;
+		max-height: 400px;
+	}
+
+}
 @media screen and (max-width: 800px) {
 	.side-menu {
 		height: 100px;
