@@ -204,6 +204,7 @@ a:active {
 	.catalog-spacer {
 		max-width: 400px;
 		max-height: 400px;
+		margin-right: 0px;
 	}
 
 }
