@@ -206,6 +206,11 @@ a:active {
 		max-height: 400px;
 		margin-right: 0px;
 	}
+	.spacer {
+		max-width: 400px;
+		max-height: 400px;
+		margin-right: 0px;
+	}
 
 }
 @media screen and (max-width: 800px) {
